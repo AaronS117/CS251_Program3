@@ -39,4 +39,7 @@ public class Card
         String s = faces[getFace(face)] + " of " + suits[getSuit(suit)];
         return s;
     }
+    public Card clone(){
+        return clone();
+    }
 }
