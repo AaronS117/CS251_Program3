@@ -1,45 +1,57 @@
-public class Card
-{
-    private int face;
+public class Card implements Cloneable{
+// All Card Instance Variable
+    private String suit;
+    private String face;
 
-    public int getFace(int face)
+    public String getSuit() // Getter
     {
-        return this.face;
+        return suit;
     }
-
-    public int setFace(int face)
+    public String getFace() // Getter
     {
-        this.face = 1;
-        return this.face;
+        return face;
     }
-
-    private int suit;
-
-    public int getSuit(int suit)
+    private void setSuit(String suit) // Setter
     {
-        return this.suit;
-    }
-
-    public int setSuit(int suit)
-    {
-        this.suit = 0;
-        return this.suit;
-    }
-
-    public Card(int rank, int suit)
-    {
-        this.face = rank;
         this.suit = suit;
+    }
+    private void setFace(String face) // Setter
+    {
+        this.face = face;
+    }
+
+    public Card(String suit, String face)
+    {
+        this.suit = suit;
+        this.face = face;
+    }
+
+    public Card() //default constructor
+    {
+        this.suit = "Clubs";
+        this.face = "Ace";
     }
 
     public String toString()
+    // You must not set suit nor rank to something that is not in the domain of the mapping that is
+    // inherent to your String toString() method. Do nothing when an argument is invalid.
+    // Contain a method String toString() which returns a String representation of the calling Card
+    // object’s suit and rank in some reasonable format.
     {
-        String[] faces = {null, "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-        String[] suits = {"clubs", "Diamonds", "Hearts", "Spades"};
-        String s = faces[getFace(face)] + " of " + suits[getSuit(suit)];
-        return s;
+        return face +" of "+suit;
     }
-    public Card clone(){
-        return clone();
+
+    public boolean equals(Card guest)
+    // Contain a method boolean equals(Card guest) which returns whether guest has the
+    // same suit and rank as the calling Card object.
+    {
+        return this.getFace().equals(guest.getFace()) && this.getSuit().equals(guest.getSuit());
+    }
+    // Card Clone Method
+    public Card clone()
+    // Contain a method Card clone() which creates and return a reference to a copy of the calling
+    // Card object.
+    {
+        return this.clone();
     }
 }
